@@ -9,3 +9,4 @@ O aplicativo em sí pode ser acessado pelo link abaixo:
 
 # Arquivo Notebook
 Juntamente com a aplicação, está disposto o arquivo notebook com todo o processo utilizado para a criação dos DataFrames e gráficos apresentados na aplicação.
+

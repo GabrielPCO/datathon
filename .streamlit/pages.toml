@@ -1,0 +1,23 @@
+[[pages]]
+path = "_🏫_Home.py"
+name = "Home"
+
+[[pages]]
+path = "pages/1_🗃️_Dataset.py"
+name = "Dataset"
+
+[[pages]]
+path = "pages/2_🔍_Análise.py"
+name = "Análise"
+
+[[pages]]
+path = "pages/3_📊_Modelo.py"
+name = "Modelo"
+
+[[pages]]
+path = "pages/4_📝_Formulário_APV.py"
+name = "Formulário_APV"
+
+[[pages]]
+path = "pages/5_📖_Referências.py"
+name = "Referências"
