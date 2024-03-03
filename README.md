@@ -6,6 +6,7 @@ Os dados foram coletados pela Associação Passos Mágicos, banco de dados priva
 
 # Aplicativo
 O aplicativo em sí pode ser acessado pelo link abaixo:  
+[tinyurl.com/datathon-pm](https://tinyurl.com/datathon-pm)
 
 # Arquivo Notebook
 Juntamente com a aplicação, está disposto o arquivo notebook com todo o processo utilizado para a criação dos DataFrames e gráficos apresentados na aplicação.
