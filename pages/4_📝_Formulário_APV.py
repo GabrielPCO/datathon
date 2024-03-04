@@ -6,6 +6,8 @@ from utils import DropFeatures, OneHotEncodingNames, OrdinalFeature, MinMaxWithF
 from sklearn.pipeline import Pipeline
 import joblib
 
+st.set_page_config(layout="centered",page_icon="📝")
+
 # Função para a leitura da base de dados
 @st.cache_data
 def read_csv_file(file):
