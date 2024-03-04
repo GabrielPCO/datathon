@@ -263,6 +263,12 @@ with tab3:
 
     SEED = 1561656
     df_treino, df_teste = train_test_split(df_passos_target, test_size=0.2, random_state=SEED)
+
+    df_treino.shape
+    (1816, 18)
+
+    df_teste.shape
+    (455, 18)
     ```
     '''
 with tab4:
@@ -281,6 +287,102 @@ with tab4:
     - Organização dos dados por OrdinalFeature em casos de dados em texto que possuem ordem (por exemplo a fase do aluno)
     - Utilização de Oversampling para o aumento da representatividade de nossa base
     - E finalmente, o rebalanceamento dos dados referentes a coluna target Ponto de Virada
+    ```
+    ```python
+    class DropFeatures(BaseEstimator, TransformerMixin):
+        def __init__(self, feature_to_drop=['ID', 'ANO_PESQUISA', 'TURMA']):
+            self.feature_to_drop = feature_to_drop
+        
+        def fit(self, df):
+            return self
+        
+        def transform(self, df):
+            if set(self.feature_to_drop).issubset(df.columns):
+                df.drop(self.feature_to_drop, axis=1, inplace=True)
+                return df
+            else:
+                print('Uma ou mais features não estão no DataFrame')
+                return df
+    ```
+    ```python
+    class OneHotEncodingNames(BaseEstimator, TransformerMixin):
+        def __init__(self, OneHotEncoding = ['INSTITUICAO_ENSINO_ALUNO', 'PEDRA']):
+            self.OneHotEncoding = OneHotEncoding
+
+        def fit(self, df):
+            return self
+
+        def transform(self, df):
+            if set(self.OneHotEncoding).issubset(df.columns):
+                def one_hot_enc(df, OneHotEncoding):
+                    one_hot_enc = OneHotEncoder()
+                    one_hot_enc.fit(df[OneHotEncoding])
+                    feature_names = one_hot_enc.get_feature_names_out(OneHotEncoding)
+                    df = pd.DataFrame(one_hot_enc.transform(df[self.OneHotEncoding]).toarray(),
+                                    columns=feature_names, index=df.index)
+                    return df
+            
+                def concat_with_rest(df, one_hot_enc_df, OneHotEncoding):
+                    outras_features = [feature for feature in df.columns if feature not in OneHotEncoding]
+                    df_concat = pd.concat([one_hot_enc_df, df[outras_features]], axis=1)
+                    return df_concat
+                
+                df_OneHotEncoding = one_hot_enc(df, self.OneHotEncoding)
+
+                df_full = concat_with_rest(df, df_OneHotEncoding, self.OneHotEncoding)
+
+                return df_full
+            else:
+                print('Uma ou mais features não estão no DataFrame')
+                return df
+    ```
+    ```python
+    class OrdinalFeature(BaseEstimator, TransformerMixin):
+        def __init__(self, ordinal_feature = ['FASE']):
+            self.ordinal_feature = ordinal_feature
+
+        def fit(self, df):
+            return self
+        
+        def transform(self, df):
+            if 'FASE' in df.columns:
+                ordinal_encoder = OrdinalEncoder()
+                df[self.ordinal_feature] = ordinal_encoder.fit_transform(df[self.ordinal_feature])
+                return df
+            else:
+                print('Fase não está no DataFrame')
+                return df
+    ```
+    ```python
+    class MinMaxWithFeatNames(BaseEstimator, TransformerMixin):
+        def __init__(self, min_max_scaler = ['ANOS_PM', 'INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPP', 'IPV', 'IAN']):
+            self.min_max_scaler = min_max_scaler
+
+        def fit(self, df):
+            return self
+        
+        def transform(self, df):
+            if set(self.min_max_scaler).issubset(df.columns):
+                min_max_enc = MinMaxScaler()
+                df[self.min_max_scaler] = min_max_enc.fit_transform(df[self.min_max_scaler])
+                return df
+            else:
+                print('Uma ou mais features não estão no DataFrame')
+                return df
+    ```
+    ```python
+    class Oversample(BaseEstimator, TransformerMixin):
+        def __init__(self):
+            pass
+
+        def fit(self, df):
+                return self
+        
+        def transform(self, df):
+            oversample = SMOTE(sampling_strategy='minority')
+            X_bal, y_bal = oversample.fit_resample(df.loc[:, df.columns != 'PONTO_VIRADA'], df['PONTO_VIRADA'])
+            df_bal = pd.concat([pd.DataFrame(X_bal), pd.DataFrame(y_bal)], axis=1)
+            return df_bal
     ```
     '''
 with tab5:

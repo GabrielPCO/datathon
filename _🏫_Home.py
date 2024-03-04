@@ -77,7 +77,7 @@ show_pages_from_config()
 
 url = 'https://passosmagicos.org.br/'
 link = 'Associação Passos Mágicos'
-st.image(load_img('Imagens/passos_magicos.png'))
+st.image(load_img('Imagens/passos_magicos_home.jpg'))
 st.markdown(f'[{link}]({url})')
 
 '''
