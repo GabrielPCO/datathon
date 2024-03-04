@@ -13,11 +13,6 @@ st.set_page_config(layout="centered",page_icon="📝")
 def read_csv_file(file):
     return pd.read_csv(file)
 
-# Função para a carregar o medelo de ml
-@st.cache_data
-def load_model(file_model):
-    return joblib.load(file_model)
-
 #carregando os dados 
 dados = read_csv_file('Dataset/df_passos_target.csv')
 
@@ -145,7 +140,7 @@ if st.button('Enviar'):
     aluno_pred = teste_novo_aluno.drop(['PONTO_VIRADA'], axis=1)
 
     #Predições
-    model = load_model('modelo/xgb.joblib')
+    model = joblib.load('Modelo/xgb.joblib')
     final_pred = model.predict(aluno_pred)
     if final_pred[-1] == 1:
         st.success('### O aluno em questão está apto para alcançar seu ponto de virada!')
