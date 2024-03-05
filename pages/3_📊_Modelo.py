@@ -280,14 +280,11 @@ with tab4:
     O pipeline é uma forma de codificar e automatizar o fluxo de trabalho necessário para produzir um modelo de aprendizado de máquina. Os pipelines de aprendizado de máquina consistem em várias etapas sequenciais que fazem tudo, desde extração e pré-processamento de dados até treinamento e implantação de modelo.
     
     Para esse projeto, foi criado um pipeline que consiste das seguintes características:
-    ```
-    - Remoção de features que não serão utilizadas pelo modelo
-    - Aplicação de MinMaxScaler para a normalização dos dados antes do processo de fitting
-    - Utilização de OneHotEncoder para a binarização das variáveis de texto
-    - Organização dos dados por OrdinalFeature em casos de dados em texto que possuem ordem (por exemplo a fase do aluno)
-    - Utilização de Oversampling para o aumento da representatividade de nossa base
-    - E finalmente, o rebalanceamento dos dados referentes a coluna target Ponto de Virada
-    ```
+    
+    ## Drop Features
+
+    Remoção de features que não serão utilizadas pelo modelo
+    
     ```python
     class DropFeatures(BaseEstimator, TransformerMixin):
         def __init__(self, feature_to_drop=['ID', 'ANO_PESQUISA', 'TURMA']):
@@ -304,6 +301,39 @@ with tab4:
                 print('Uma ou mais features não estão no DataFrame')
                 return df
     ```
+    '''
+    st.divider()
+    '''
+
+    ## Min Max Scaler
+
+    Aplicação de MinMaxScaler para a normalização dos dados antes do processo de fitting
+
+    ```python
+    class MinMaxWithFeatNames(BaseEstimator, TransformerMixin):
+        def __init__(self, min_max_scaler = ['ANOS_PM', 'INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPP', 'IPV', 'IAN']):
+            self.min_max_scaler = min_max_scaler
+
+        def fit(self, df):
+            return self
+        
+        def transform(self, df):
+            if set(self.min_max_scaler).issubset(df.columns):
+                min_max_enc = MinMaxScaler()
+                df[self.min_max_scaler] = min_max_enc.fit_transform(df[self.min_max_scaler])
+                return df
+            else:
+                print('Uma ou mais features não estão no DataFrame')
+                return df
+    ```
+    '''
+    st.divider()
+    '''
+
+    ## One Hot Encoder
+
+    Utilização de OneHotEncoder para a binarização das variáveis de texto
+
     ```python
     class OneHotEncodingNames(BaseEstimator, TransformerMixin):
         def __init__(self, OneHotEncoding = ['INSTITUICAO_ENSINO_ALUNO', 'PEDRA']):
@@ -336,6 +366,14 @@ with tab4:
                 print('Uma ou mais features não estão no DataFrame')
                 return df
     ```
+    '''
+    st.divider()
+    '''
+
+    ## Ordinal Feature
+
+    Organização dos dados por OrdinalFeature em casos de dados em texto que possuem ordem (por exemplo a fase do aluno)
+
     ```python
     class OrdinalFeature(BaseEstimator, TransformerMixin):
         def __init__(self, ordinal_feature = ['FASE']):
@@ -353,23 +391,14 @@ with tab4:
                 print('Fase não está no DataFrame')
                 return df
     ```
-    ```python
-    class MinMaxWithFeatNames(BaseEstimator, TransformerMixin):
-        def __init__(self, min_max_scaler = ['ANOS_PM', 'INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPP', 'IPV', 'IAN']):
-            self.min_max_scaler = min_max_scaler
+    '''
+    st.divider()
+    '''
 
-        def fit(self, df):
-            return self
-        
-        def transform(self, df):
-            if set(self.min_max_scaler).issubset(df.columns):
-                min_max_enc = MinMaxScaler()
-                df[self.min_max_scaler] = min_max_enc.fit_transform(df[self.min_max_scaler])
-                return df
-            else:
-                print('Uma ou mais features não estão no DataFrame')
-                return df
-    ```
+    ## Oversample
+
+    Utilização de Oversampling para o aumento da representatividade de nossa base
+
     ```python
     class Oversample(BaseEstimator, TransformerMixin):
         def __init__(self):
@@ -383,6 +412,29 @@ with tab4:
             X_bal, y_bal = oversample.fit_resample(df.loc[:, df.columns != 'PONTO_VIRADA'], df['PONTO_VIRADA'])
             df_bal = pd.concat([pd.DataFrame(X_bal), pd.DataFrame(y_bal)], axis=1)
             return df_bal
+    ```
+    '''
+    st.divider()
+    '''
+
+    ## Rebalanceamento
+
+    E finalmente, o rebalanceamento dos dados referentes a coluna target Ponto de Virada
+
+    ```python
+    df_passos_target['PONTO_VIRADA'].value_counts(normalize=True)*100
+
+    PONTO_VIRADA
+    0    86.129458
+    1    13.870542
+    Name: proportion, dtype: float64
+
+    treino['PONTO_VIRADA'].value_counts(normalize=True)*100
+
+    PONTO_VIRADA
+    0    50.0
+    1    50.0
+    Name: proportion, dtype: float64
     ```
     '''
 with tab5:

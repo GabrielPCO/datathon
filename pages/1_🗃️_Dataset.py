@@ -82,7 +82,11 @@ st.image(load_img('Imagens/dataframe.png'))
 
 Os dados dispostos a seguir são originalmente produzidos pela Associação Passos Mágicos e estão anonimizados para uso técnico. 
 
-Os dados estão apresentados em uma tabela .csv em ordem de número do aluno e possui como target a coluna 'Ponto de Virada'.
+Eles são apresentados em uma tabela .csv em ordem de número do aluno e possui como target a coluna 'Ponto de Virada'.
+
+Cada linha da tabela é compreendida como um aluno independente, mesmo para alunos que estiveram mais de um ano com a Passos Mágicos.
+
+Isso ocorre, pois nossa análise enfatiza a trajetória do aluno no ano para verificar a possibilidade do mesmo atingir seu ponto de virada naquele momento.
 
 [passosmagicos.org.br](https://passosmagicos.org.br/) - Site oficial da Associação Passos Mágicos
 
