@@ -37,9 +37,9 @@ st.image(load_img('Imagens/ml.png'))
 
 Agora, iremos descrever sobre a aplicação desenvolvida nesse documento a partir do dataset providenciado pela Associação Passos Mágicos.
 
-o Formulário APV consiste em uma aplicação web que utiliza um modelo criado a partir de técnicas de machine learning para avaliar se um dado aluno tem condições de alcançar seu ponto de virada. 
+o Formulário APV consiste em uma aplicação web que utiliza um modelo criado a partir de técnicas de machine learning para analisar as condições de um aluno específico em alcançar seu ponto de virada. 
 
-O professor insere os dados do aluno (Instituição, fase, classificação, notas e etc) e o modelo verifica se aquele aluno está apto a alcançar seu ponto de virada naquele momento específico de sua jornada escolar. 
+O professor insere os dados do aluno (Instituição, fase, classificação, notas e etc) e o modelo compara com a base de dados e verifica se aquele aluno está estatisticamernte apto a alcançar seu ponto de virada naquele momento específico de sua jornada escolar. 
 
 O intuito da ferramenta não é classificar alunos que podem chegar ao ponto de virada, mas indicar quais deles precisam de maior atenção do corpo docente.
 '''
@@ -64,9 +64,9 @@ with tab0:
 
     Decidiu-se por separa os dados fornecidos pela Associação Passos Mágicos por ano da pesquisa (2020, 2021 e 2022). Desse mode, foi possível tratar os dados com maior precisão.
     
-    Inicialmente, os valores nulos foram verificados e tratados de acordo com o seu contexto, podendo serem excluídos ou alterados por valores mais adequados. 
+    Inicialmente, os valores nulos foram verificados e tratados de acordo com o seu contexto, podendo serem excluídos ou alterados por valores mais adequados para o contexto. 
     
-    Em seguida, associados os valores de cada coluna com seus tipos de dados mais adequados. 
+    Em seguida, os valores de cada coluna foram associados com seus tipos de dados mais adequados. 
     
     Finalmente, as colunas dos dataframes foram reorganizados de forma mais coerente possível.
     
@@ -230,13 +230,13 @@ with tab1:
     '''
 with tab2:
     '''
-    ## Correlação das variáveis
+    ## Correlação dos atributos
 
-    Em seguida, decidiu-se realizar a verificação da correlação entre as variáves presentes em nosso dataset.
+    Em seguida, decidiu-se por realizar a verificação da correlação entre os atributos presentes no dataset.
 
-    Avaliar a correlação entre atributos é de extrema importância na análise de dados, uma vez que evita a multicolinearidade entre os atributos. 
+    Avaliar a correlação entre atributos é de extrema importância na análise de dados, uma vez que evita a multicolinearidade entre eles. 
     
-    Variáveis fortemente correlacionadas podem representam a mesma informação e, portanto, não necessitam ser utilizadas em conjunto.    
+    Atributos fortemente correlacionadas podem representam a mesma informação e, portanto, não necessitam ser utilizadas em conjunto.    
     ```python
     corr = df_passos_corr.corr()
     plt.figure(figsize=(20,10))
@@ -246,7 +246,7 @@ with tab2:
     st.image(load_img('Imagens/corr.png'))
     '''
 
-    Percebemos pela imagem que no geral as colunas do dataframe não possuem uma correlação forte e, portanto, podemos utilizá-las para a criação do nosso modelo em ml.
+    Percebemos pela imagem que no geral as colunas do dataframe não possuem uma correlação forte e, portanto, podemos utilizá-las para a criação do nosso modelo em aprendizado de máquina.
     '''
 with tab3:
     '''
@@ -256,7 +256,7 @@ with tab3:
     
     Dessa forma, alimentamos o algoritmo com uma certa quantidade de dados e depois utilizamos os dados de teste para validar o conhecimento. 
     
-    Funciona como uma simulação de como o modelo reagiria à entrada de novos dados, além de permitir a verificação do desempenho do modelo.
+    Funciona como uma simulação de como o modelo reagirá à entrada de novos dados, além de permitir a verificação do desempenho do modelo.
     
     ```python
     from sklearn.model_selection import train_test_split
@@ -275,7 +275,7 @@ with tab4:
     '''
     ## Pipeline do modelo
 
-    É interessante que seja construido um pipeline do modelo para que novos dados possam ser processados de forma rápida e para diminuirmos a occorrência de erros durante o processo de geração do modelo.
+    É interessante que seja construido um pipeline do modelo para que novos dados possam ser processados de forma eficáz e para diminuirmos a occorrência de erros durante o processo de geração do modelo.
 
     O pipeline é uma forma de codificar e automatizar o fluxo de trabalho necessário para produzir um modelo de aprendizado de máquina. Os pipelines de aprendizado de máquina consistem em várias etapas sequenciais que fazem tudo, desde extração e pré-processamento de dados até treinamento e implantação de modelo.
     
@@ -283,7 +283,7 @@ with tab4:
     
     ## Drop Features
 
-    Remoção de features que não serão utilizadas pelo modelo
+    Remoção de atributos que não serão utilizadas pelo modelo
     
     ```python
     class DropFeatures(BaseEstimator, TransformerMixin):
@@ -323,7 +323,7 @@ with tab4:
                 df[self.min_max_scaler] = min_max_enc.fit_transform(df[self.min_max_scaler])
                 return df
             else:
-                print('Uma ou mais features não estão no DataFrame')
+                print('Um ou mais atributos não estão no DataFrame')
                 return df
     ```
     '''
@@ -363,7 +363,7 @@ with tab4:
 
                 return df_full
             else:
-                print('Uma ou mais features não estão no DataFrame')
+                print('Um ou mais atributos não estão no DataFrame')
                 return df
     ```
     '''
@@ -372,7 +372,7 @@ with tab4:
 
     ## Ordinal Feature
 
-    Organização dos dados por OrdinalFeature em casos de dados em texto que possuem ordem (por exemplo a fase do aluno)
+    Realizou-se a organização dos dados por Ordinal Feature em casos de atributos em formato de texto e que possuem ordem (por exemplo a fase do aluno)
 
     ```python
     class OrdinalFeature(BaseEstimator, TransformerMixin):
@@ -397,7 +397,7 @@ with tab4:
 
     ## Oversample
 
-    Utilização de Oversampling para o aumento da representatividade de nossa base
+    Utilização de Oversampling para o aumento da representatividade de nossa base, visto que estamos trabalhando com uma base limitada nessa questão
 
     ```python
     class Oversample(BaseEstimator, TransformerMixin):
@@ -419,7 +419,7 @@ with tab4:
 
     ## Rebalanceamento
 
-    E finalmente, o rebalanceamento dos dados referentes a coluna target Ponto de Virada
+    E finalmente, o rebalanceamento dos dados referentes a coluna target (Ponto de Virada)
 
     ```python
     df_passos_target['PONTO_VIRADA'].value_counts(normalize=True)*100
@@ -556,7 +556,9 @@ with tab6:
     '''
     ## Seleção do modelo
 
-    Ao final, o modelo selecionado foi o Gradient Boosting Classifier, pois a partir dele que obtivemos os melhores resultados tanto de precisão quanto de f1-score
+    Ao final, o modelo selecionado foi o Gradient Boosting Classifier, pois a partir dele que obtivemos os melhores resultados tanto de precisão quanto de f1-score (Métrica classificatória)
 
-    O aumento de gradiente (Gradient boosting) refere-se a uma classe de algoritmos de aprendizado de máquina que podem ser usados para problemas de classificação ou modelagem preditiva de regressão.
+    O aumento de gradiente (Gradient Boosting) refere-se a uma classe de algoritmos de aprendizado de máquina que podem ser usados para problemas de classificação ou modelagem preditiva de regressão. 
+    
+    Em nosso caso, como necessitamos de um modelo capáz de classificar alunos que atingiram o ponto de virada dependendo de diversos atributos diferentes, o Gradient Boosting Classifier se mostra uma ferramenta muito eficáz e precisa para o trabalho.
     '''
