@@ -73,11 +73,17 @@ st.markdown(
     """ , unsafe_allow_html=True
 )
 
+st.markdown('''<video controls width="700" height="400" autoplay="true" muted="true" loop="true" poster="https://niverdobem.com.br/wp-content/uploads/2020/10/18A3D82B-2FDB-4355-A9D1-FBAA99E56F41.jpeg" controlsList="nodownload">
+            <source 
+            src="https://tinyurl.com/datathon-video" 
+            type="video/mp4"/>
+            </video>''', unsafe_allow_html=True)
+
 show_pages_from_config()
 
 url = 'https://passosmagicos.org.br/'
 link = 'Associação Passos Mágicos'
-st.image(load_img('Imagens/passos_magicos_home.jpg'))
+#st.image(load_img('Imagens/passos_magicos_home.jpg'))
 st.markdown(f'[{link}]({url})')
 
 '''
