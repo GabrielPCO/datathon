@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 import streamlit as st
 
-st.set_page_config(layout="centered",page_icon="🔍")
+st.set_page_config(layout="wide",page_icon="🔍")
 
 # Carregamento de imagens por cach
 @st.cache_data
@@ -62,9 +62,9 @@ st.markdown(
 '''
 ## Análise exploratória
 '''
-st.image(load_img('Imagens/processamento_analise.png'))
+#st.image(load_img('Imagens/processamento_analise.png'))
 
-'''
+Dashboard_Power_BI = '<iframe title="datathon_alura_pos_tech" style="width:90.3%; height:1700px" src="https://app.powerbi.com/view?r=eyJrIjoiNGYwMjk2NmQtNjIyMi00MjNkLTk1MzYtYmMyYjc5NDUyYjU4IiwidCI6IjExZGJiZmUyLTg5YjgtNDU0OS1iZTEwLWNlYzM2NGU1OTU1MSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>'
 
-Em Construção
-'''
+with st.container(border=False):
+    st.markdown(Dashboard_Power_BI, unsafe_allow_html=True)
