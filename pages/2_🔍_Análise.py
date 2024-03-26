@@ -60,27 +60,29 @@ st.markdown(
     """ , unsafe_allow_html=True
 )
 '''
-## :book: Impacto Socioeducacional
-
-O dashboard a seguir representa uma ferramenta de análise de dados, separado em dois painéis ou abas. 
-O objetivo é dar visibilidade a indicadores socioeducacionais relacionados à atuação da Associação, os quais são relevantes para compreender de que maneira a Passos Mágicos pode ser um agente de transformação na vida da população que ela atende.
-
-Para melhor entender o impacto da Passos Mágicos, é necessário contextualizar o cenário socioecônomico e educacional da região em que ela atua.
-Desta forma, o primeiro painel busca caracterizar o município de Embu-Guaçu (SP), quanto a sua demografia (sexo, cor/raça, pirâmide etária, etc.), infraestruturas básicas e sistema educacional.
-
-Já no segundo painel, o objetivo é destrinchar os dados diponibilizados pela Passos Mágicos no âmbito dos projetos de Pesquisa Extensiva do Desenvolvimento Educacional, dos anos de 2020, 2021 e 2022. São apresentados indicadores relacionados
-ao desempenho dos alunos, ao impacto da atuação da Associação no sistema educacional do município e outras análises diversas com objetivo de salientar a importância da oferta de bolsas de estudos em instituições de ensino privadas.
-
-Um dos principais resultados deste projeto é exatamente esse, poder evidenciar com dados aos interessados da Associação Passos Mágicos que **expandir** parcerias com instituições privadas pode ser um caminho de sucesso para aumentar o impacto da Associação.
-
-##### :bulb: Acesse o dashboard em Tela Cheia e explore análises com o espaço exploratório de indicadores no segundo painel! :arrow_down_small:
-
+## 🔍 Impacto Socioeducacional
 '''
-#st.image(load_img('Imagens/processamento_analise.png'))
 
-Dashboard_Power_BI = '<iframe title="datathon_alura_pos_tech" style="width:90.3%; height:1700px" src="https://app.powerbi.com/view?r=eyJrIjoiNGYwMjk2NmQtNjIyMi00MjNkLTk1MzYtYmMyYjc5NDUyYjU4IiwidCI6IjExZGJiZmUyLTg5YjgtNDU0OS1iZTEwLWNlYzM2NGU1OTU1MSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>'
+col1, col2 = st.columns([0.035,0.965])
+with col2:
+    '''
+    O dashboard a seguir representa uma ferramenta de análise de dados, separado em dois painéis ou abas. 
+    O objetivo é dar visibilidade a indicadores socioeducacionais relacionados à atuação da Associação, os quais são relevantes para compreender de que maneira a Passos Mágicos pode ser um agente de transformação na vida da população que ela atende.
 
-st.divider()
+    Para melhor entender o impacto da Passos Mágicos, é necessário contextualizar o cenário socioecônomico e educacional da região em que ela atua.
+    Desta forma, o primeiro painel busca caracterizar o município de Embu-Guaçu (SP), quanto a sua demografia (sexo, cor/raça, pirâmide etária, etc.), infraestruturas básicas e sistema educacional.
 
-with st.container():
-    st.markdown(Dashboard_Power_BI, unsafe_allow_html=True)
+    Já no segundo painel, o objetivo é destrinchar os dados diponibilizados pela Passos Mágicos no âmbito dos projetos de Pesquisa Extensiva do Desenvolvimento Educacional, dos anos de 2020, 2021 e 2022. São apresentados indicadores relacionados
+    ao desempenho dos alunos, ao impacto da atuação da Associação no sistema educacional do município e outras análises diversas com objetivo de salientar a importância da oferta de bolsas de estudos em instituições de ensino privadas.
+
+    Um dos principais resultados deste projeto é exatamente esse, poder evidenciar com dados aos interessados da Associação Passos Mágicos que **expandir** parcerias com instituições privadas pode ser um caminho de sucesso para aumentar o impacto da Associação.
+
+    '''
+    st.warning(':bulb: Acesse o dashboard em Tela Cheia e explore análises com o espaço exploratório de indicadores no segundo painel!')
+
+    Dashboard_Power_BI = '<p align="center"><iframe title="datathon_alura_pos_tech" style="width:94.1%; height:1700px" src="https://app.powerbi.com/view?r=eyJrIjoiNGYwMjk2NmQtNjIyMi00MjNkLTk1MzYtYmMyYjc5NDUyYjU4IiwidCI6IjExZGJiZmUyLTg5YjgtNDU0OS1iZTEwLWNlYzM2NGU1OTU1MSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe></p>'
+
+    st.divider()
+
+    with st.container():
+        st.markdown(Dashboard_Power_BI, unsafe_allow_html=True)

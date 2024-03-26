@@ -24,7 +24,7 @@ def load_img(img):
     return plt.imread(img)
 
 # Titulo de Página
-st.title('Impacto socioeducacional da Associação Passos Mágicos nas crianças de Embu-Guaçu (SP)')
+st.title('🏫Impacto socioeducacional da &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Associação Passos Mágicos nas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;crianças de Embu-Guaçu (SP)')
 
 # Código para alinhar imagens expandidas no centro da tela e justificar textos
 st.markdown(
@@ -114,9 +114,12 @@ st.divider()
 
 [cidades.ibge.gov.br](https://cidades.ibge.gov.br/brasil/sp/embu-guacu/panorama) - Censo IBGE para o município de Embu-Guaçu
 
-[servicodados.ibge.gov.br] (https://servicodados.ibge.gov.br/api/docs/agregados?versao=3) - API de dados agregados do IBGE
-
-Contatos dos integrantes do projeto:
+[servicodados.ibge.gov.br](https://servicodados.ibge.gov.br/api/docs/agregados?versao=3) - API de dados agregados do IBGE 
+&ensp;
+&ensp;
+&ensp;
+&ensp;
+### Contatos dos integrantes do projeto:
 
 [github.com/GabrielPCO](https://github.com/GabrielPCO) - Github Gabriel Oliveira
 

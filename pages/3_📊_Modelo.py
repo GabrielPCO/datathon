@@ -30,7 +30,7 @@ st.markdown(
 )
 
 '''
-## :bar_chart: Modelo de análise do Ponto de Virada (APV)
+## :bar_chart: Modelo de análise do Ponto de Virada &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(APV)
 '''
 st.image(load_img('Imagens/ml.png'))
 '''

@@ -20,9 +20,9 @@ dados = read_csv_file('Dataset/df_passos_target.csv')
 ############################# Streamlit ############################
 st.markdown('<style>div[role="listbox"] ul{background-color: #6e42ad}; </style>', unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center; '> Formulário de Análise do Ponto de Virada Passos Mágicos </h1>", unsafe_allow_html = True)
+st.markdown("<h1 style='text-align: center; '> 📝Formulário de Análise do Ponto de Virada Passos Mágicos </h1>", unsafe_allow_html = True)
 
-st.warning('Preencha o formulário com todos os dados do aluno e clique no botão **ENVIAR** no final da página.')
+st.warning(':bulb: Preencha o formulário com todos os dados do aluno e clique no botão **ENVIAR** no final da página.')
 
 # Bolsa de Estudos
 st.write('### Bolsa de Estudos')

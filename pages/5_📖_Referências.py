@@ -52,7 +52,7 @@ st.markdown(
 )
 
 '''
-## Referências
+## 📖Referências
 
 1. GOMES, Pedro César Tebaldi. Conheça as Etapas do Pré-Processamento de dados. DATAGEEKS, 2019. Disponível em: https://www.datageeks.com.br/pre-processamento-de-dados/. Acessado em: 03, março de 2024.
 
