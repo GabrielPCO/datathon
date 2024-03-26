@@ -80,15 +80,16 @@ st.markdown(
 st.image(load_img('Imagens/dataframe.png'))
 '''
 
-Os dados dispostos a seguir são originalmente produzidos pela Associação Passos Mágicos e estão anonimizados para uso técnico. 
+Os dados visualizados abaixo foram produzidos originalmente pela Associação Passos Mágicos e estão anonimizados para uso técnico. Além disso, técnicas de limpeza e processamento de dados foram aplicadas para atender aos objetivos da análise de dados
+e construção do modelo de Machine Learning.
 
-Eles são apresentados em uma tabela .csv em ordem de número do aluno e possui como target a coluna 'Ponto de Virada'.
+Em resumo, a tabela apresenta dados cadastrais e de desempenho acadêmico de 1348 alunos entre os anos de 2020 e 2022. Para viabilizar um dataset consistente em toda a série temporal, apenas colunas presentes nos 3 anos foram considerados para as análises.
+Ao final, foi obtida uma tabela composta por 18 colunas e 2275 linhas, sendo 727 alunos em 2020, 686 alunos em 2021 e 862 alunos em 2022.
 
-Cada linha da tabela é compreendida como um aluno independente, mesmo para alunos que estiveram mais de um ano com a Passos Mágicos.
+A última coluna, de nome Ponto de Virada, é a coluna target do modelo desenvolvido, que visa prever o atingimento do Ponto de Virada através do desempenho e características do aluno analisado.
 
-Isso ocorre, pois nossa análise enfatiza a trajetória do aluno no ano para verificar a possibilidade do mesmo atingir seu ponto de virada naquele momento.
-
-[passosmagicos.org.br](https://passosmagicos.org.br/) - Site oficial da Associação Passos Mágicos
+Por vim, é importante ressaltar que cada linha da tabela é compreendida como um aluno independente, mesmo para alunos que estiveram mais de um ano com a Passos Mágicos.
+Isso ocorre, pois o modelo busca avaliar a trajetória do aluno ano a ano e verificar a possibilidade do mesmo atingir seu ponto de virada naquele momento.
 
 '''
 df = read_csv_file('Dataset/df_passos_target.csv')
