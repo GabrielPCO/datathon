@@ -35,11 +35,11 @@ st.markdown(
 st.image(load_img('Imagens/ml.png'))
 '''
 
-Agora, iremos descrever sobre a aplicação desenvolvida nesse documento a partir do dataset providenciado pela Associação Passos Mágicos.
+Nesta seção, será descrito o método utilizado no desenvolvimento da aplicação de Machine Learning utilizando os dados disponibilizados pela Associação Passos Mágicos.
 
-o Formulário APV consiste em uma aplicação web que utiliza um modelo criado a partir de técnicas de machine learning para analisar as condições de um aluno específico em alcançar seu ponto de virada. 
+O Formulário APV consiste em uma aplicação web que analisa os dados de um aluno específico e, a partir do modelo de Machine Learning, infere se ele está apto a atintir o Ponto de Virada. 
 
-O professor insere os dados do aluno (Instituição, fase, classificação, notas e etc) e o modelo compara com a base de dados e verifica se aquele aluno está estatisticamernte apto a alcançar seu ponto de virada naquele momento específico de sua jornada escolar. 
+A utilização é muito simples, o usuário da Passos Mágicos precisa apenas inserir os dados do aluno (Instituição, fase, classificação, notas, etc.). Em seguida, o modelo compara estas informações com os padrões encontrados na base de dados da Associação e avalia se aquele aluno está apto a alcançar seu Ponto de Virada naquele momento específico de sua jornada escolar. 
 
 O intuito da ferramenta não é classificar alunos que podem chegar ao ponto de virada, mas indicar quais deles precisam de maior atenção do corpo docente.
 '''
@@ -47,7 +47,7 @@ st.divider()
 '''
 ## Construção do modelo
 
-A seguir, serão descritas as etapas envolvidas na criação e treinamento do nosso modelo de previões:
+O método de desenvolvimento do modelo consistiu em 7 etapas, descritas nas seções a seguir:
 '''
 # Layout das etapas
 tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Limpeza",
@@ -62,13 +62,12 @@ with tab0:
     '''
     ## Limpeza dos dados
 
-    Decidiu-se por separa os dados fornecidos pela Associação Passos Mágicos por ano da pesquisa (2020, 2021 e 2022). Desse mode, foi possível tratar os dados com maior precisão.
+    Decidiu-se por separar os dados fornecidos pela Associação Passos Mágicos por ano da pesquisa (2020, 2021 e 2022). Desse modo, foi possível trabalhar com uma estruturação de dados mais simples e melhor ajustada.
     
-    Inicialmente, os valores nulos foram verificados e tratados de acordo com o seu contexto, podendo serem excluídos ou alterados por valores mais adequados para o contexto. 
+    Inicialmente, os valores nulos foram verificados e tratados de acordo com o seu contexto, sendo ora excluídos ora alterados por valores mais adequados, de acordo com o contexto. 
     
-    Em seguida, os valores de cada coluna foram associados com seus tipos de dados mais adequados. 
-    
-    Finalmente, as colunas dos dataframes foram reorganizados de forma mais coerente possível.
+    Em seguida, os valores de cada coluna foram associados com seus tipos de dados mais adequados e, por fim,
+    as colunas dos dataframes foram reorganizados de forma mais coerente possível.
     
     O resultado final para cada dataframe foi o seguinte:
 
@@ -185,11 +184,11 @@ with tab0:
     '''
 with tab1:
     '''
-    ## Mesclagem dos dados
+    ## Concatenação dos dados
 
-    Para uma melhor uso dos dados, foi realizada a mesclagem das três tabelas já pré-processadas.
+    Após a limpeza dos dados e separação em tabelas por ano de pesquisa, os três DataFrames processados foram concatenados em uma tabela única.
 
-    Foram escolhidas as colunas de mais interesse para o projeto e, então, aplicada a mesclagem dos dados.
+    Foram escolhidas as colunas de mais interesse para o projeto e, então, aplicada a concatenação dos dados dos três anos.
 
     ```python
     def generate_df_to_merge(df):
@@ -232,7 +231,7 @@ with tab2:
     '''
     ## Correlação dos atributos
 
-    Em seguida, decidiu-se por realizar a verificação da correlação entre os atributos presentes no dataset.
+    Com o conjunto de dados devidamente processado e concatenado, decidiu-se por realizar a verificação da correlação entre os atributos presentes no dataset.
 
     Avaliar a correlação entre atributos é de extrema importância na análise de dados, uma vez que evita a multicolinearidade entre eles. 
     
@@ -246,17 +245,16 @@ with tab2:
     st.image(load_img('Imagens/corr.png'))
     '''
 
-    Percebemos pela imagem que no geral as colunas do dataframe não possuem uma correlação forte e, portanto, podemos utilizá-las para a criação do nosso modelo em aprendizado de máquina.
+    Percebe-se pela imagem que no geral as colunas do dataframe não possuem uma correlação forte e, portanto, podemos utilizá-las para a criação do nosso modelo em aprendizado de máquina.
     '''
 with tab3:
     '''
-    ## Divisão em treino e teste
+    ## Criação dos conjuntos de treino e teste
 
-    Com os dados devidamente analisados, partimos para a divisão dos dados. Em Machine Learning é comum a divisão dos dados em treino e teste. 
+    Em modelos de Machine Learning, outra etapa básica e esencial é a separação do conjunto de dados em subconjuntos de treino e teste. O primeiro é utilizado no treinamento do algoritmo, enquanto que o conjunto de teste é empregado exclusivamente
+    na validação dos resultados do modelo treinado.
     
-    Dessa forma, alimentamos o algoritmo com uma certa quantidade de dados e depois utilizamos os dados de teste para validar o conhecimento. 
-    
-    Funciona como uma simulação de como o modelo reagirá à entrada de novos dados, além de permitir a verificação do desempenho do modelo.
+    O test_size escolhido foi de 0.2, ou seja, 80% dos registros compõem o conjunt de treino e 20% entram no conjunto de teste.
     
     ```python
     from sklearn.model_selection import train_test_split
@@ -275,9 +273,9 @@ with tab4:
     '''
     ## Pipeline do modelo
 
-    É interessante que seja construido um pipeline do modelo para que novos dados possam ser processados de forma eficáz e para diminuirmos a occorrência de erros durante o processo de geração do modelo.
+    É interessante que seja construido um pipeline do modelo para que novos dados possam ser processados de forma eficáz e a occorrência de erros durante o processo de geração do modelo seja reduzida.
 
-    O pipeline é uma forma de codificar e automatizar o fluxo de trabalho necessário para produzir um modelo de aprendizado de máquina. Os pipelines de aprendizado de máquina consistem em várias etapas sequenciais que fazem tudo, desde extração e pré-processamento de dados até treinamento e implantação de modelo.
+    O pipeline é uma forma de automatizar o fluxo de trabalho necessário para produzir um modelo de aprendizado de máquina. Os pipelines de aprendizado de máquina consistem em várias etapas sequenciais que atuam desde a extração e pré-processamento de dados até treinamento e implantação de modelo.
     
     Para esse projeto, foi criado um pipeline que consiste das seguintes características:
     
@@ -441,7 +439,7 @@ with tab5:
     '''
     ## Avaliação do modelo
 
-    Para avaliar e selecionar o modelo mais adequado utilizamos Matriz de Confusão, Classification Report e Curva ROC.
+    Para avaliar e selecionar o modelo mais preciso foram calculados a Matriz de Confusão, o Classification Report e a Curva ROC.
 
     ```python
     def roda_modelo(modelo):
@@ -556,9 +554,9 @@ with tab6:
     '''
     ## Seleção do modelo
 
-    Ao final, o modelo selecionado foi o Gradient Boosting Classifier, pois a partir dele que obtivemos os melhores resultados tanto de precisão quanto de f1-score (Métrica classificatória)
+    Ao final, o modelo selecionado foi o Gradient Boosting Classifier, pois a partir dele foram obtidos os melhores resultados, tanto de precisão quanto de f1-score.
 
-    O aumento de gradiente (Gradient Boosting) refere-se a uma classe de algoritmos de aprendizado de máquina que podem ser usados para problemas de classificação ou modelagem preditiva de regressão. 
+    O aumento de gradiente (Gradient Boosting) refere-se a uma classe de algoritmos de aprendizado de máquina que pode ser usada para problemas de classificação ou de regressão. 
     
-    Em nosso caso, como necessitamos de um modelo capáz de classificar alunos que atingiram o ponto de virada dependendo de diversos atributos diferentes, o Gradient Boosting Classifier se mostra uma ferramenta muito eficáz e precisa para o trabalho.
+    No casos deste projeto, o Gradient Boosting Classifier se mostrou um algoritmo muito eficaz e precisa, principalmente neste contexto em que foi necessário trabalhar com dezenas de variáveis para classificar alunos que atingiram o Ponto de Virada.
     '''
