@@ -67,4 +67,14 @@ st.markdown(
 6. PŁOŃSKI, Piotr. How to save and load Xgboost in Python?. Mljar, 2021. Disponível em: https://mljar.com/blog/xgboost-save-load-python/. Acessado em: 03, março de 2024.
 
 7. ASHRAF, Abdallah. Oversampling — Handling Imbalanced Data. Medium, 2023. Disponível em: https://medium.com/@abdallahashraf90x/oversampling-for-better-machine-learning-with-imbalanced-data-68f9b5ac2696. Acessado em: 03, março de 2024.
+
+8. Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP). (2020). Censo Escolar da Educação Básica 2020. Brasília, DF: Ministério da Educação.
+
+9. Instituto Brasileiro de Geografia e Estatística (IBGE). (2022). Censo Demográfico 2022: Resultados Preliminares. Rio de Janeiro, RJ: IBGE.
+
+10. SILVA, Dario Rodrigues da. Pesquisa Extensiva do Desenvolvimento Educacional - PEDE 2020. Associação Passos Mágicos. São Paulo, p. 105. 2021.
+
+11. SILVA, Dario Rodrigues da. Pesquisa Extensiva do Desenvolvimento Educacional - PEDE 2021. Associação Passos Mágicos. São Paulo, p. 105. 2022.
+
+12. SILVA, Dario Rodrigues da. Pesquisa Extensiva do Desenvolvimento Educacional - PEDE 2022. Associação Passos Mágicos. São Paulo, p. 217. 2023.
 '''
