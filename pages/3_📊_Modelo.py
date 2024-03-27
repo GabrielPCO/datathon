@@ -37,9 +37,9 @@ st.image(load_img('Imagens/ml.png'))
 
 Nesta seção, será descrito o método utilizado no desenvolvimento da aplicação de Machine Learning utilizando os dados disponibilizados pela Associação Passos Mágicos.
 
-O Formulário APV consiste em uma aplicação web que analisa os dados de um aluno específico e, a partir do modelo de Machine Learning, infere se ele está apto a atintir o Ponto de Virada. 
+O Formulário APV consiste em uma aplicação web que analisa os dados de um aluno específico e, a partir do modelo de Machine Learning, infere se ele está apto a atingir o Ponto de Virada. 
 
-A utilização é muito simples, o usuário da Passos Mágicos precisa apenas inserir os dados do aluno (Instituição, fase, classificação, notas, etc.). Em seguida, o modelo compara estas informações com os padrões encontrados na base de dados da Associação e avalia se aquele aluno está apto a alcançar seu Ponto de Virada naquele momento específico de sua jornada escolar. 
+A utilização é muito simples, o usuário da Passos Mágicos precisa apenas inserir os dados do aluno (Instituição, fase, classificação, notas etc.). Em seguida, o modelo compara estas informações com os padrões encontrados na base de dados da Associação e avalia se aquele aluno está apto a alcançar seu Ponto de Virada naquele momento específico de sua jornada escolar. 
 
 O intuito da ferramenta não é classificar alunos que podem chegar ao ponto de virada, mas indicar quais deles precisam de maior atenção do corpo docente.
 '''
@@ -62,14 +62,14 @@ with tab0:
     '''
     ## Limpeza dos dados
 
-    Decidiu-se por separar os dados fornecidos pela Associação Passos Mágicos por ano da pesquisa (2020, 2021 e 2022). Desse modo, foi possível trabalhar com uma estruturação de dados mais simples e melhor ajustada.
+    Decidiu-se por separar os dados fornecidos pela Associação Passos Mágicos por ano da pesquisa (2020, 2021 e 2022). Desse modo, foi possível trabalhar com uma estruturação de dados mais simples e mais bem ajustada.
     
     Inicialmente, os valores nulos foram verificados e tratados de acordo com o seu contexto, sendo ora excluídos ora alterados por valores mais adequados, de acordo com o contexto. 
     
     Em seguida, os valores de cada coluna foram associados com seus tipos de dados mais adequados e, por fim,
     as colunas dos dataframes foram reorganizados de forma mais coerente possível.
     
-    O resultado final para cada dataframe foi o seguinte:
+    O resultado para cada dataframe foi o seguinte:
 
     ## DataFrame Passos 2020
 
@@ -251,10 +251,10 @@ with tab3:
     '''
     ## Criação dos conjuntos de treino e teste
 
-    Em modelos de Machine Learning, outra etapa básica e esencial é a separação do conjunto de dados em subconjuntos de treino e teste. O primeiro é utilizado no treinamento do algoritmo, enquanto que o conjunto de teste é empregado exclusivamente
+    Em modelos de Machine Learning, outra etapa básica e essencial é a separação do conjunto de dados em subconjuntos de treino e teste. O primeiro é utilizado no treinamento do algoritmo, enquanto o conjunto de teste é empregado exclusivamente
     na validação dos resultados do modelo treinado.
     
-    O test_size escolhido foi de 0.2, ou seja, 80% dos registros compõem o conjunt de treino e 20% entram no conjunto de teste.
+    O tamanho de teste escolhido foi de 0,2, ou seja, 80% dos registros compõem o conjunt de treino e 20% entram no conjunto de teste.
     
     ```python
     from sklearn.model_selection import train_test_split
@@ -273,7 +273,7 @@ with tab4:
     '''
     ## Pipeline do modelo
 
-    É interessante que seja construido um pipeline do modelo para que novos dados possam ser processados de forma eficáz e a occorrência de erros durante o processo de geração do modelo seja reduzida.
+    É interessante que seja construído um pipeline do modelo para que novos dados possam ser processados de forma eficaz e a ocorrência de erros durante o processo de geração do modelo seja reduzida.
 
     O pipeline é uma forma de automatizar o fluxo de trabalho necessário para produzir um modelo de aprendizado de máquina. Os pipelines de aprendizado de máquina consistem em várias etapas sequenciais que atuam desde a extração e pré-processamento de dados até treinamento e implantação de modelo.
     
@@ -558,5 +558,5 @@ with tab6:
 
     O aumento de gradiente (Gradient Boosting) refere-se a uma classe de algoritmos de aprendizado de máquina que pode ser usada para problemas de classificação ou de regressão. 
     
-    No casos deste projeto, o Gradient Boosting Classifier se mostrou um algoritmo muito eficaz e precisa, principalmente neste contexto em que foi necessário trabalhar com dezenas de variáveis para classificar alunos que atingiram o Ponto de Virada.
+    No caso deste projeto, o Gradient Boosting Classifier se mostrou um algoritmo muito eficaz e precisa, principalmente neste contexto em que foi necessário trabalhar com dezenas de variáveis para classificar alunos que atingiram o Ponto de Virada.
     '''

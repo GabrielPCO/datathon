@@ -80,7 +80,7 @@ st.markdown(
 st.image(load_img('Imagens/dataframe.png'))
 '''
 
-Os dados visualizados abaixo foram produzidos originalmente pela Associação Passos Mágicos, relacionados aos projetos de Pesquisa Extensiva do Desenvolvimento Educacional realizados na institruição, e estão anonimizados para uso técnico. Técnicas de limpeza e processamento de dados foram aplicadas para atender aos objetivos da análise de dados
+Os dados visualizados abaixo foram produzidos originalmente pela Associação Passos Mágicos, relacionados aos projetos de Pesquisa Extensiva do Desenvolvimento Educacional realizados na instituição, e estão anonimizados para uso técnico. Técnicas de limpeza e processamento de dados foram aplicadas para atender aos objetivos da análise de dados
 e construção do modelo de Machine Learning.
 
 Em resumo, a tabela apresenta dados cadastrais e de desempenho acadêmico, estes relacionados ao Índice de Desenvolvimento Educacional (INDE), de 1348 alunos entre os anos de 2020 e 2022. Para viabilizar um dataset consistente em toda a série temporal, apenas colunas presentes nos 3 anos foram considerados para as análises.
@@ -89,7 +89,7 @@ Ao final, foi obtida uma tabela composta por 18 colunas e 2275 linhas, sendo 727
 A última coluna, de nome Ponto de Virada, é a coluna target do modelo desenvolvido, que visa prever o atingimento do Ponto de Virada através do desempenho e características do aluno analisado.
 
 Por vim, é importante ressaltar que cada linha da tabela é compreendida como um aluno independente, mesmo para alunos que estiveram mais de um ano com a Passos Mágicos.
-Isso ocorre, pois o modelo busca avaliar a trajetória do aluno ano a ano e verificar a possibilidade do mesmo atingir seu ponto de virada naquele momento.
+Isso ocorre, pois o modelo busca avaliar a trajetória do aluno ano a ano e verificar a sua possibilidade de atingir seu ponto de virada naquele momento.
 
 '''
 df = read_csv_file('Dataset/df_passos_target.csv')

@@ -87,16 +87,16 @@ link = 'Associação Passos Mágicos'
 #st.markdown(f'[{link}]({url})')
 
 '''
-A Associação Passos Mágicos tem uma trajetória de mais de 30 anos de atuação, trabalhando na transformação da vida de crianças e jovens de baixa renda, alçando criancas a melhores oportunidades através de pilares como educação, ações sociais
+A Associação Passos Mágicos tem uma trajetória de mais de 30 anos de atuação, trabalhando na transformação da vida de crianças e jovens de baixa renda, alçando crianças a melhores oportunidades através de pilares como educação, ações sociais
 e acompanhamento psicopedagógico.
 
 Idealizada por Michelle Flues e Dimitri Ivanoff, esta história de sucesso teve início principalmente nos orfanatos do município de Embu-Guaçu, desde sempre buscando tornar sua região de atuação um lugar em que jovens e crianças tenham igualdade de
 oportunidades de crescimento pessoal e profissional.
 
 Atualmente, a Passos Mágicos atende crianças desde os 6 anos até jovens do terceiro ano do Ensino Médio, com iniciativas de aceleração do conhecimento como aulas de português, matemática e inglês, bolsas em instituições de ensino particulares e intercâmbio.
-Ainda, fornece acompanhamento psicológico para os alunos e promove atividades culturas e ações sociais, para formar também seres humanos com uma visão de mundo mais crítica e consicente do seu potencial.
+Ainda, fornece acompanhamento psicológico para os alunos e promove atividades culturas e ações sociais, para formar também seres humanos com uma visão de mundo mais crítica e consciente do seu potencial.
 
-Evidentemente, o sucesso da Passos Mágicos depende do esforço e competência de seus colaboradores, que dão seu máximo para cuidar destas crianças com carinho, e também dos apoiadores e patrocinadores que enxergam o tamanho da importância da Associação Passos Mágicos
+Evidentemente, o sucesso da Passos Mágicos depende do esforço e competência de seus colaboradores, que dão seu máximo para cuidar destas crianças com carinho, e dos apoiadores e patrocinadores que enxergam o tamanho da importância da Associação Passos Mágicos
 para toda a população de Embu-Guaçu (SP). Neste sentido, é de extrema relevância para a Passos Mágicos mensurar o impacto de suas iniciativas na vida das crianças atendidas, como forma de justificar a expansão de seus programas.
 
 Neste projeto, que é parte do trabalho de conclusão de curso da Pós-Tech em Data Analytics da FIAP, será analisado o impacto da Associação Passos Mágicos com olhar direcionado para as crianças e jovens como indivíduo, para buscar compreender quão influente
