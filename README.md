@@ -1,5 +1,5 @@
-# Datathon Associação Passos Mágicos - Data Analysis
-Aplicação criada para o Datathon do curso pós-tech de data analysis da Fiap-Alura. 
+# Datathon Associação Passos Mágicos - Data Analytics
+Aplicação criada para o Datathon do curso pós-tech de data analytics da Fiap-Alura. 
 Aplicação criado em python utilizando a biblioteca do Streamlit para a vizualização.
 A aplicação apresenta a análise dos dados de impacto da Associação Passos Mágicos no município de Embu-Guaçu.
 Os dados foram coletados pela Associação Passos Mágicos, banco de dados privado mantido pela própria ONG.
